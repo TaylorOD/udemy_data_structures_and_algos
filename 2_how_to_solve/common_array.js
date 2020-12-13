@@ -26,11 +26,17 @@ const array2 = ["z", "y", "a"]
 const compareTwoArrays = function (array1, array2) {
   let objectMap = {}
   for (let i=0; i < array1.length; i += 1) {
-    if (!map[array1[i]]) {
+    if (!objectMap[array1[i]]) {
       const item = array1[i]
       objectMap[item] = true
     }
   }
+  for (let j = 0; j < array2.length; j += 1) {
+    if (objectMap[array2[j]]) {
+      return true
+    } 
+  }
+  return false
 }
 
 console.log(compareTwoArrays(array1, array2))
